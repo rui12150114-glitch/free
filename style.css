@@ -1,0 +1,587 @@
+/* ---------------------------------------
+   Freelance Rate Calculator — Stylesheet
+--------------------------------------- */
+
+:root {
+  --color-primary: #1d4ed8;
+  --color-primary-dark: #1e3a8a;
+  --color-primary-light: #eff4ff;
+  --color-accent: #0d9488;
+  --color-text: #1f2937;
+  --color-text-muted: #5b6472;
+  --color-border: #e2e5ea;
+  --color-bg: #ffffff;
+  --color-bg-soft: #f7f9fc;
+  --color-error: #b42318;
+  --color-error-bg: #fef2f1;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --shadow-card: 0 4px 20px rgba(20, 30, 60, 0.08);
+  --max-width: 1120px;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+h1, h2, h3 {
+  line-height: 1.25;
+  font-weight: 700;
+  color: #111827;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  margin: 0 0 16px;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin: 0 0 12px;
+}
+
+h3 {
+  font-size: 1.125rem;
+  margin: 0 0 8px;
+}
+
+p {
+  margin: 0 0 12px;
+  color: var(--color-text-muted);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 10px 16px;
+  z-index: 100;
+  border-radius: 0 0 8px 0;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* Focus states */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ---------- Header ---------- */
+
+.site-header {
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: saturate(180%) blur(6px);
+  z-index: 50;
+}
+
+/* Anchor targets need top offset room so the sticky header doesn't cover
+   the heading/content when a nav link (#calculator, #how-it-works, #faq)
+   jumps the page straight to that section. Without this, the top of each
+   target section renders underneath the fixed header. The value is a bit
+   larger than the header's typical rendered height (~64-70px) to leave a
+   small safety margin across browsers/font-size settings. */
+#calculator,
+#how-it-works,
+#faq {
+  scroll-margin-top: 88px;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: #111827;
+}
+
+.logo span {
+  color: var(--color-primary);
+}
+
+.logo:hover {
+  text-decoration: none;
+}
+
+.main-nav {
+  display: flex;
+  gap: 24px;
+}
+
+.main-nav a {
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.main-nav a:hover {
+  color: var(--color-primary);
+}
+
+/* ---------- Small-screen header (320px–480px) ----------
+   Without this, "FreelanceRateCalculator" plus three nav links don't
+   fit on one line under ~480px. Flex items default to min-width: auto,
+   so they don't shrink to fit — the row overflows the viewport instead
+   of wrapping, causing horizontal scrolling. This wraps the nav onto
+   its own line below the logo and trims sizes so both stay within the
+   viewport with no horizontal scroll. */
+@media (max-width: 480px) {
+  .header-inner {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 8px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .logo {
+    font-size: 1rem;
+  }
+
+  .main-nav {
+    width: 100%;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .main-nav a {
+    font-size: 0.88rem;
+  }
+
+  /* The header is taller once it wraps to two lines, so anchor-jump
+     targets need more clearance than the 88px used on wider screens,
+     or the wrapped header would still cover part of the section. */
+  #calculator,
+  #how-it-works,
+  #faq {
+    scroll-margin-top: 112px;
+  }
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  padding: 64px 0 48px;
+  background: linear-gradient(180deg, var(--color-primary-light) 0%, #ffffff 100%);
+  text-align: center;
+}
+
+.hero-sub {
+  max-width: 620px;
+  margin: 0 auto 28px;
+  font-size: 1.1rem;
+}
+
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.06s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(29, 78, 216, 0.28);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+  text-decoration: none;
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+.hero-cta {
+  font-size: 1.05rem;
+}
+
+/* ---------- Calculator ---------- */
+
+.calculator-section {
+  padding: 56px 0;
+}
+
+.calculator-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 860px) {
+  .calculator-grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+.calculator-form {
+  background: var(--color-bg-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.92rem;
+  margin-bottom: 6px;
+  color: #111827;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 1rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: #fff;
+  color: var(--color-text);
+}
+
+.form-group input:focus {
+  border-color: var(--color-primary);
+}
+
+.field-help {
+  font-size: 0.82rem;
+  margin: 6px 0 0;
+  color: var(--color-text-muted);
+}
+
+.field-error {
+  font-size: 0.82rem;
+  margin: 6px 0 0;
+  color: var(--color-error);
+  font-weight: 600;
+  min-height: 1em;
+}
+
+.form-group.has-error input {
+  border-color: var(--color-error);
+  background: var(--color-error-bg);
+}
+
+.btn-calculate {
+  width: 100%;
+  margin-top: 4px;
+}
+
+/* ---------- Results ---------- */
+
+.results-panel {
+  position: relative;
+}
+
+.results-placeholder {
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 40px 28px;
+  text-align: center;
+  color: var(--color-text-muted);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.results-card {
+  /* Narrower gradient range (0%–100%, darker blue endpoint) than before.
+     The previous #1d4ed8 endpoint combined with the light-blue label
+     color (#cbd8ff) measured only ~4.7:1 contrast at the bluest part of
+     the card — technically passing WCAG AA (4.5:1) but with almost no
+     safety margin for a card that carries the page's primary result.
+     #163ca8 keeps the same visual direction with a safer margin. */
+  background: linear-gradient(180deg, #0f172a 0%, #163ca8 100%);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  color: #fff;
+  box-shadow: var(--shadow-card);
+}
+
+.results-lead {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #dbe6ff;
+  font-weight: 600;
+}
+
+.results-hourly {
+  margin: 4px 0 0;
+  font-size: clamp(2.4rem, 6vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.results-daily {
+  margin: 0 0 20px;
+  font-size: 1.05rem;
+  color: #dbe6ff;
+  font-weight: 600;
+}
+
+.results-breakdown {
+  margin: 0 0 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 16px;
+}
+
+.breakdown-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  gap: 12px;
+}
+
+.breakdown-row:last-child {
+  border-bottom: none;
+}
+
+.breakdown-row dt {
+  font-size: 0.88rem;
+  color: #dbe6ff;
+}
+
+.breakdown-row dd {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.results-note {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #dbe6ff;
+}
+
+/* ---------- Ad slots ---------- */
+
+.ad-slot {
+  min-height: 100px;
+  margin: 32px 0;
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: var(--color-bg-soft);
+}
+
+/* ---------- How it works ---------- */
+
+.how-it-works {
+  padding: 56px 0;
+  background: var(--color-bg-soft);
+}
+
+.section-intro {
+  max-width: 640px;
+  font-size: 1.05rem;
+  margin-bottom: 32px;
+}
+
+.explanation-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 700px) {
+  .explanation-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.explanation-grid article {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 22px;
+}
+
+.explanation-grid p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* ---------- FAQ ---------- */
+
+.faq {
+  padding: 56px 0;
+}
+
+.faq-list {
+  max-width: 760px;
+}
+
+.faq-list details {
+  border-bottom: 1px solid var(--color-border);
+  padding: 16px 0;
+}
+
+.faq-list summary {
+  font-weight: 700;
+  cursor: pointer;
+  color: #111827;
+  font-size: 1.02rem;
+  list-style: none;
+  position: relative;
+  padding-right: 28px;
+}
+
+.faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-list summary::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: -2px;
+  font-size: 1.4rem;
+  color: var(--color-primary);
+}
+
+.faq-list details[open] summary::after {
+  content: "\2212";
+}
+
+.faq-list details p {
+  margin: 12px 0 0;
+  font-size: 0.95rem;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  padding: 32px 0;
+  background: var(--color-bg-soft);
+}
+
+.footer-inner nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.footer-inner nav a {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.footer-disclaimer {
+  font-size: 0.82rem;
+  max-width: 720px;
+}
+
+.footer-copy {
+  font-size: 0.82rem;
+  margin: 0;
+}
+
+/* ---------- Simple pages (about/privacy/terms/contact) ---------- */
+
+.page-content {
+  padding: 56px 0;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.page-content h1 {
+  margin-bottom: 20px;
+}
+
+.page-content h2 {
+  margin-top: 32px;
+}
+
+.page-content ul {
+  color: var(--color-text-muted);
+}
+
+.contact-info {
+  background: var(--color-bg-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 22px;
+  margin-top: 20px;
+}

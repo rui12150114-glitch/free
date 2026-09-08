@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Freelance Hourly Rate Calculator – Find Your Ideal Rate Free</title>
+<meta name="description" content="Calculate the hourly rate you need to charge as a freelancer based on income goals, taxes, expenses, and billable hours. Free, no signup required.">
+
+<!--
+  SITE_URL CONFIGURATION
+  This site has no build step, so there is no environment variable for
+  the domain. Instead, every absolute URL below uses the literal
+  placeholder "YOUR_DOMAIN_HERE". Before launch, do a project-wide
+  find-and-replace of "YOUR_DOMAIN_HERE" with your real domain
+  (e.g. https://freelanceratecalculator.com) across:
+    index.html, about.html, privacy.html, terms.html, contact.html,
+    sitemap.xml, robots.txt
+-->
+<link rel="canonical" href="https://YOUR_DOMAIN_HERE/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Freelance Hourly Rate Calculator – Find Your Ideal Rate Free">
+<meta property="og:description" content="Calculate the hourly rate you need to charge as a freelancer based on income goals, taxes, expenses, and billable hours. Free, no signup required.">
+<meta property="og:url" content="https://YOUR_DOMAIN_HERE/">
+<meta property="og:site_name" content="Freelance Rate Calculator">
+<!-- og:image intentionally omitted: no asset exists yet. Add one (e.g.
+     /assets/og-image.png, 1200x630) and restore this tag, along with
+     switching twitter:card back to "summary_large_image" below. -->
+
+<!-- Twitter: using "summary" (no image) until an og:image exists -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Freelance Hourly Rate Calculator – Find Your Ideal Rate Free">
+<meta name="twitter:description" content="Calculate the hourly rate you need to charge as a freelancer based on income goals, taxes, expenses, and billable hours.">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjIwIiBmaWxsPSIjMWQ0ZWQ4Ii8+PHRleHQgeD0iNTAiIHk9IjY4IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNjAiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4kPC90ZXh0Pjwvc3ZnPg==">
+<link rel="stylesheet" href="style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Freelance Rate Calculator",
+  "url": "https://YOUR_DOMAIN_HERE/",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "A free calculator that helps freelancers determine the hourly rate they need to charge based on income goals, taxes, business expenses, vacation time, and billable utilization."
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much should a freelancer charge per hour?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on your income goal, taxes, business expenses, and how many hours you can actually bill. Instead of guessing, use a calculation that starts with the annual income you want to take home and works backward to an hourly rate that covers taxes, expenses, and unpaid time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate my freelance hourly rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start with your desired take-home income, add taxes and business expenses to find your required revenue, then divide that by the number of hours you can realistically bill in a year. This calculator does that math for you automatically."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What percentage of my time should be billable?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most freelancers can only bill 50-80% of their working hours once you account for admin, marketing, client communication, and finding new work. A common starting estimate is 70%, but track your own time to find your real number."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should freelancers charge for vacation time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Freelancers don't get paid time off, so vacation weeks need to be built into your rate in advance. This calculator subtracts your vacation weeks from the year, which increases your hourly rate to make up for the weeks you won't be billing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between hourly rate and take-home income?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Take-home income is what you keep after taxes and business expenses. Your hourly rate has to generate enough revenue to cover both of those things and still leave you with your target take-home income."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">Freelance<span>Rate</span>Calculator</a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#calculator">Calculator</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <section class="hero">
+    <div class="container">
+      <h1>Freelance Hourly Rate Calculator</h1>
+      <p class="hero-sub">Find the hourly rate you need to reach your income goal as a freelancer — accounting for taxes, expenses, vacation time, and realistic billable hours.</p>
+      <a href="#calculator" class="btn btn-primary hero-cta">Calculate My Rate</a>
+    </div>
+  </section>
+
+  <section id="calculator" class="calculator-section">
+    <div class="container calculator-grid">
+
+      <form class="calculator-form" id="rate-form" novalidate>
+        <h2 class="visually-hidden">Freelance Rate Calculator Inputs</h2>
+
+        <div class="form-group">
+          <label for="income">Desired annual take-home income (USD)</label>
+          <input type="number" id="income" name="income" inputmode="decimal" min="0" step="100" value="60000" aria-describedby="income-help income-error">
+          <p class="field-help" id="income-help">The amount you want to keep after taxes and business expenses.</p>
+          <p class="field-error" id="income-error" role="alert"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="hours">Working hours per week</label>
+          <input type="number" id="hours" name="hours" inputmode="decimal" min="0" max="168" step="1" value="40" aria-describedby="hours-help hours-error">
+          <p class="field-help" id="hours-help">Total hours you work per week, including non-billable tasks.</p>
+          <p class="field-error" id="hours-error" role="alert"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="vacation">Vacation weeks per year</label>
+          <input type="number" id="vacation" name="vacation" inputmode="decimal" min="0" max="51" step="1" value="3" aria-describedby="vacation-help vacation-error">
+          <p class="field-help" id="vacation-help">Weeks you won't be working, including holidays and time off.</p>
+          <p class="field-error" id="vacation-error" role="alert"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="tax">Estimated tax rate (%)</label>
+          <input type="number" id="tax" name="tax" inputmode="decimal" min="0" max="99" step="1" value="25" aria-describedby="tax-help tax-error">
+          <p class="field-help" id="tax-help">Your estimated effective tax rate (income and self-employment tax combined), for planning purposes only. Actual rates vary by location, income level, and individual circumstances.</p>
+          <p class="field-error" id="tax-error" role="alert"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="expenses">Annual business expenses (USD)</label>
+          <input type="number" id="expenses" name="expenses" inputmode="decimal" min="0" step="50" value="3000" aria-describedby="expenses-help expenses-error">
+          <p class="field-help" id="expenses-help">Software, equipment, insurance, and other costs of running your business.</p>
+          <p class="field-error" id="expenses-error" role="alert"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="utilization">Billable utilization (%)</label>
+          <input type="number" id="utilization" name="utilization" inputmode="decimal" min="1" max="100" step="1" value="70" aria-describedby="utilization-help utilization-error">
+          <p class="field-help" id="utilization-help">The share of your working hours you can actually bill to clients.</p>
+          <p class="field-error" id="utilization-error" role="alert"></p>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-calculate">Calculate My Rate</button>
+      </form>
+
+      <div class="results-panel" id="results-panel" aria-live="polite">
+        <div class="results-placeholder" id="results-placeholder">
+          <p>Fill in your numbers and click <strong>Calculate My Rate</strong> to see your recommended hourly rate.</p>
+        </div>
+
+        <div class="results-card" id="results-card" hidden>
+          <p class="results-lead">You should charge approximately</p>
+          <p class="results-hourly" id="result-hourly">$0/hour</p>
+          <p class="results-daily" id="result-daily">$0/day (8-hour workday)</p>
+
+          <dl class="results-breakdown">
+            <div class="breakdown-row">
+              <dt>Required annual revenue</dt>
+              <dd id="result-revenue">$0</dd>
+            </div>
+            <div class="breakdown-row">
+              <dt>Estimated monthly revenue</dt>
+              <dd id="result-monthly">$0</dd>
+            </div>
+            <div class="breakdown-row">
+              <dt>Estimated annual billable hours</dt>
+              <dd id="result-annual-hours">0</dd>
+            </div>
+            <div class="breakdown-row">
+              <dt>Weekly billable hours</dt>
+              <dd id="result-weekly-hours">0</dd>
+            </div>
+          </dl>
+
+          <p class="results-note">This covers your take-home income, estimated taxes, and business expenses — based on the hours you can realistically bill.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="ad-slot" aria-hidden="true">Advertisement</div>
+  </div>
+
+  <section id="how-it-works" class="how-it-works">
+    <div class="container">
+      <h2>How the Freelance Rate Calculator Works</h2>
+      <p class="section-intro">Freelance pricing isn't just "salary divided by hours." Here's why each input matters.</p>
+
+      <div class="explanation-grid">
+        <article>
+          <h3>Why taxes matter</h3>
+          <p>As a freelancer, no employer withholds or matches your taxes. Your hourly rate has to generate enough pre-tax revenue that, after taxes are paid, you still take home your target income.</p>
+        </article>
+
+        <article>
+          <h3>Why business expenses matter</h3>
+          <p>Software subscriptions, equipment, insurance, and other costs of running a business come out of your revenue before you see any take-home pay. These need to be priced into your rate, not treated as an afterthought.</p>
+        </article>
+
+        <article>
+          <h3>Why freelancers can't bill every working hour</h3>
+          <p>Time spent on admin, invoicing, marketing, proposals, and client calls is real work, but it usually isn't billable. Most freelancers can only bill somewhere between 50% and 80% of their total working hours — this calculator uses your utilization estimate to adjust for that.</p>
+        </article>
+
+        <article>
+          <h3>Why vacation time affects your rate</h3>
+          <p>Freelancers don't get paid time off. If you want to take vacation without losing income, the weeks you're not working need to be covered by the weeks you are — which raises the rate you charge during your working weeks.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="faq">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-list">
+        <details>
+          <summary>How much should a freelancer charge per hour?</summary>
+          <p>It depends on your income goal, taxes, business expenses, and how many hours you can actually bill. Instead of guessing, use a calculation that starts with the annual income you want to take home and works backward to an hourly rate that covers taxes, expenses, and unpaid time.</p>
+        </details>
+
+        <details>
+          <summary>How do I calculate my freelance hourly rate?</summary>
+          <p>Start with your desired take-home income, add taxes and business expenses to find your required revenue, then divide that by the number of hours you can realistically bill in a year. This calculator does that math for you automatically.</p>
+        </details>
+
+        <details>
+          <summary>What percentage of my time should be billable?</summary>
+          <p>Most freelancers can only bill 50–80% of their working hours once you account for admin, marketing, client communication, and finding new work. A common starting estimate is 70%, but track your own time to find your real number.</p>
+        </details>
+
+        <details>
+          <summary>Should freelancers charge for vacation time?</summary>
+          <p>Freelancers don't get paid time off, so vacation weeks need to be built into your rate in advance. This calculator subtracts your vacation weeks from the year, which increases your hourly rate to make up for the weeks you won't be billing.</p>
+        </details>
+
+        <details>
+          <summary>What is the difference between hourly rate and take-home income?</summary>
+          <p>Take-home income is what you keep after taxes and business expenses. Your hourly rate has to generate enough revenue to cover both of those things and still leave you with your target take-home income.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="ad-slot" aria-hidden="true">Advertisement</div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <nav aria-label="Footer navigation">
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <p class="footer-disclaimer">This calculator provides estimates for general informational purposes only and is not tax, legal, or financial advice. See our <a href="terms.html">Disclaimer</a> for details.</p>
+    <p class="footer-copy">&copy; <span id="year"></span> Freelance Rate Calculator</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

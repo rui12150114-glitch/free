@@ -1,0 +1,8 @@
+# Replace YOUR_DOMAIN_HERE with your real domain before launch.
+# See the SITE_URL note in index.html for the full list of files
+# that share this placeholder.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://YOUR_DOMAIN_HERE/sitemap.xml
