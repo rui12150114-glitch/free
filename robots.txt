@@ -5,4 +5,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://YOUR_DOMAIN_HERE/sitemap.xml
+Sitemap: https://rui12150114-glitch.github.io/sitemap.xml
