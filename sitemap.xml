@@ -1,29 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Replace YOUR_DOMAIN_HERE with your real domain in every <loc> below before launch. See the SITE_URL note in index.html for the full list of files that share this placeholder. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://YOUR_DOMAIN_HERE/</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://rui12150114-glitch.github.io/free/</loc>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
   <url>
-    <loc>https://YOUR_DOMAIN_HERE/about.html</loc>
-    <changefreq>yearly</changefreq>
+    <loc>https://rui12150114-glitch.github.io/free/about.html</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+
   <url>
-    <loc>https://YOUR_DOMAIN_HERE/privacy.html</loc>
+    <loc>https://rui12150114-glitch.github.io/free/privacy.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+
   <url>
-    <loc>https://YOUR_DOMAIN_HERE/terms.html</loc>
+    <loc>https://rui12150114-glitch.github.io/free/terms.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+
   <url>
-    <loc>https://YOUR_DOMAIN_HERE/contact.html</loc>
-    <changefreq>yearly</changefreq>
+    <loc>https://rui12150114-glitch.github.io/free/contact.html</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
+
 </urlset>
